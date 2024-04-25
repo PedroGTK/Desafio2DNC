@@ -2,6 +2,8 @@
 
 *{
     font-family: "Inter", sans-serif;
+    background-color: #F2F2F2;
+    
 }
 
 #menu{
@@ -14,11 +16,13 @@
     padding:0px;
     margin-top: 15px;
     list-style:none;
+    background-color: #0C70F2;
 
 }
 
 #menu ul li {
      display: inline; 
+     background-color: #0C70F2;
 }
 
 #menu ul li a { 
@@ -26,6 +30,7 @@
     display: inline-block; 
     color: white; 
     text-decoration: none; 
+    background-color: #0C70F2;
    
 }
 
@@ -34,10 +39,12 @@
 }
 #LOGO {
     margin-top: 5px;
+    
 }
 #LOGO a h1{
     font-size: bold;
     font-weight: 800;
+    background-color: #0C70F2;
 }
 
 #LOGO a{ 
@@ -45,10 +52,26 @@
     display: inline-block; 
     color: white; 
     text-decoration: none;
+    background-color: #0C70F2;
 
 } 
 #LOGO a:hover { 
     color: #d5e0eb;
+}
+
+.intro{
+    display: flex;
+    padding: 50px;
+    overflow: hidden;
+}
+
+#texto{
+    
+}
+
+.intro img{
+    width: 150px;
+    
 }
 
 
