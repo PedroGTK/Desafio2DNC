@@ -5,6 +5,9 @@
     background-color: #F2F2F2;
     
 }
+body{
+    background-color: #F2F2F2;
+}
 
 #menu{
     background-color:#0C70F2;
@@ -39,6 +42,7 @@
 }
 #LOGO {
     margin-top: 5px;
+    background-color: #0C70F2;
     
 }
 #LOGO a h1{
@@ -67,13 +71,13 @@
     padding-top: 50px;
 }
 
-#texto{
+.texto{
     max-width: 500px;
     max-height: 300px;
     margin-top: 25px;
     
 }
-#texto h2{
+.texto h2{
     font-weight: 800;
 }
 
@@ -137,6 +141,19 @@
 
 .botao-acessar:hover {
     background-color: #0056b3; 
+}
+.Rlocal{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding-top: 150px;
+}
+.titulo{
+    display: flex;
+    justify-content:space-around;
+}
+.titulo h2{
+    margin-right: 15px;
 }
 
 
