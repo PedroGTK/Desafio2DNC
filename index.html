@@ -16,7 +16,7 @@
             <a href="#"><h1>DncWeather</h1></a>
         </div>
         <ul> 
-          <li><a href="#">Endereços</a></li>
+          <li><a href=".Rlocal">Endereços</a></li>
           <li><a href="#">Previsão do tempo</a></li> 
         </ul> 
       
@@ -52,21 +52,68 @@
                     <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Longitude">
                 </div>
             </div>
-            <button class="botao-acessar">Acessar</button>
+            <button class="botao-acessar"onclick="getAddressByCep()">Acessar</button>
         </div>
 
     </div>
     <!--Resultado-->
-    <div class="Rlocal">
+    <div class="endereco">
         <div class="titulo">
             <div class="texto"><h2>Resultado da busca por CEP:</h2></div>
             <div id="imgL"><img src="img/imgL.svg" alt="" style="width: 70px;"></div>
         </div>
-        <div class="api">
-            <label for="">Logradouro/Nome</label>
-            <input type="text" id="cidade" >
+    </div>
+    <div class="api">
+        <div class="localidade">
+            <div class="resposta">
+                <label for="">Logradouro/Nome</label>
+                <input type="text" id="rua" >
+            </div>
+            <div class="resposta">
+                <label for="">Bairro/Destino</label>
+                <input type="text" id="bairro" >
+            </div>
+            <div class="resposta">
+                <label for="">Localidade/UF</label>
+                <input type="text" id="cidade" >
+            </div>
+        </div>
+        
+    </div>
+    <!--previsão do tempo-->
+    <div class="clima">
+        <div class="titulo">
+            <div class="texto"><h2>Previsão do tempo na região</h2></div>
+            <div id="clima"><img src="img/clima.svg" alt="img/clima.svg" style="width: 70px;"></div>
         </div>
     </div>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+    <script>
+      async function getAddressByCep() {
+        const cep = document.getElementById('CEP').value;
+        try {
+        const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const data = await response.json();
+        console.log(data);
+        document.getElementById('rua'). value = data.logradouro
+        document.getElementById('bairro'). value = data.bairro
+        document.getElementById('cidade'). value = data.localidade
+        } catch (error) {
+          alert(error.message);
+        } 
+
+      }
+
+    </script>
