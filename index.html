@@ -13,11 +13,11 @@
     
     <nav id="menu"> 
         <div id="LOGO"> 
-            <a href="#"><h1>DncWeather</h1></a>
+            <a href="index.html"><h1>DncWeather</h1></a>
         </div>
         <ul> 
-          <li><a href=".Rlocal">Endereços</a></li>
-          <li><a href="#">Previsão do tempo</a></li> 
+          <li><a href="#C9">Endereços</a></li>
+          <li><a href="#imgL">Previsão do tempo</a></li> 
         </ul> 
       
     </nav>
@@ -48,11 +48,11 @@
             <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label">Digite a latitude e longitude para saber a previsão:</label>
                 <div id="test" style="display: flex;">
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Latitude">
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Longitude">
+                    <input type="text" class="form-control" id="latitude" placeholder="Latitude">
+                    <input type="text" class="form-control" id="longitude" placeholder="Longitude">
                 </div>
             </div>
-            <button class="botao-acessar"onclick="getAddressByCep()">Acessar</button>
+            <button class="botao-acessar"onclick="getAddressByCep() ; getPrevisao() " >Acessar</button>
         </div>
 
     </div>
@@ -81,13 +81,31 @@
         
     </div>
     <!--previsão do tempo-->
-    <div class="clima">
-        <div class="titulo">
-            <div class="texto"><h2>Previsão do tempo na região</h2></div>
-            <div id="clima"><img src="img/clima.svg" alt="img/clima.svg" style="width: 70px;"></div>
+    <div class="latlong">
+        <div class="clima">
+            <div class="titulo">
+                <div class="texto"><h2>Previsão do tempo na região:</h2></div>
+                <div id="clima"><img src="img/clima.svg" alt="img/clima.svg" style="width: 90px;"></div>
+            </div>
         </div>
+        <div class="centro">
+            <div class="res">
+                <h3 id="tempo">Sem Informação</h3>
+            </div>
+    </div>
     </div>
 
+    <footer>
+        <div class="links">
+            <a href="termos-de-uso.html">Termos de Uso</a> | <a href="politica-de-privacidade.html">Política de Privacidade</a>
+        </div>
+    </footer>
+
+
+    <!--
+        -5.08921
+        -42.8016
+    -->
 </body>
 </html>
 
@@ -110,6 +128,25 @@
         document.getElementById('rua'). value = data.logradouro
         document.getElementById('bairro'). value = data.bairro
         document.getElementById('cidade'). value = data.localidade
+        } catch (error) {
+          alert(error.message);
+        } 
+
+      }
+
+      
+
+      async function getPrevisao() {
+        const lat = document.getElementById('latitude').value;
+        const lon = document.getElementById('longitude').value;
+        try {
+        const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m`
+        );
+        const data = await response.json();
+        console.log(data);
+        document.getElementById('tempo').innerHTML =  "Previsão de tempo de acordo com a região:  "+ data.current.temperature_2m +"° C";
+        
+        
         } catch (error) {
           alert(error.message);
         } 
