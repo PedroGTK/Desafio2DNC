@@ -30,31 +30,34 @@
     </div>
     <!--PERGUNTA-->
     <div class="condeiner">
-        <div id="forms">
-            <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label" style="background-color: white;">Primeiro Nome:</label>
-                <input type="text" class="form-control" id="PNOME" placeholder="Insira seu primeiro nome">
-            </div>
-            <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">E-mail:</label>
-                <input type="text" class="form-control" id="EMAIL" placeholder="Insira seu e-mail">
-            </div>
-
-            <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">Digite o CEP:</label>
-                <input type="text" class="form-control" id="CEP" placeholder="Insira o CEP">
-            </div>
-            
-            <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">Digite a latitude e longitude para saber a previsão:</label>
-                <div id="test" style="display: flex;">
-                    <input type="text" class="form-control" id="latitude" placeholder="Latitude">
-                    <input type="text" class="form-control" id="longitude" placeholder="Longitude">
+        
+            <div id="forms">
+                
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label" style="background-color: white;">Primeiro Nome:</label>
+                    <input type="text" class="form-control" id="PNOME" placeholder="Insira seu primeiro nome" >
                 </div>
-            </div>
-            <button class="botao-acessar"onclick="getAddressByCep() ; getPrevisao() " >Acessar</button>
-        </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput2" class="form-label">E-mail:</label>
+                    <input type="email" class="form-control" id="EMAIL" placeholder="Insira seu e-mail">
+                </div>
 
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Digite o CEP:</label>
+                    <input type="text" class="form-control" id="CEP" placeholder="Insira o CEP">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Digite a latitude e longitude para saber a previsão:</label>
+                    <div id="test" style="display: flex;">
+                        <input type="text" class="form-control" id="latitude" placeholder="Latitude" >
+                        <input type="text" class="form-control" id="longitude" placeholder="Longitude" >
+                    </div>
+                </div>
+               
+                <button class="botao-acessar"onclick="getAddressByCep() ; getPrevisao(); descer() " >Acessar</button>
+            </div>
+        
     </div>
     <!--Resultado-->
     <div class="endereco">
@@ -151,6 +154,12 @@
           alert(error.message);
         } 
 
+      }
+
+
+      function descer(){
+        
+        document.getElementById('imgL').scrollIntoView({ behavior: 'smooth' });
       }
 
     </script>
